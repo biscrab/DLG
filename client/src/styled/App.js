@@ -12,6 +12,7 @@ export const Header = styled.nav`
 export const Page = styled.div`
     display: flex;
     justify-content: center;
+    flex-direction: column;
 `
 
 export const Border = styled.div`
@@ -22,6 +23,13 @@ export const Border = styled.div`
 
 export const Photo = styled.div`
     box-shadow: 0p 0p 1px 1px black;
+    height: 19%;
+    width: 19%;
+    margin: 3%;
+    img{
+        width: 100%;
+        height: 100%;
+    }
 `
 
 export const MoveDiv = styled.div`
