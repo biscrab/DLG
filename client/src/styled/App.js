@@ -4,9 +4,12 @@ export const Header = styled.nav`
     background-color: white;
     position: fixed;
     top: 0;
+    width: 100%;
     z-index: 100;
-    height: 5%;
+    height: 7%;
     border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
 `
 
 export const Page = styled.div`

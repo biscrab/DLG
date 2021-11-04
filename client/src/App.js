@@ -3,6 +3,7 @@ import './App.css';
 import Header from './contents/header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Photo from './contents/photo'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Header />
       <S.Page>
         <S.Border>
+          <Photo lists={lists}/>
         </S.Border>
       </S.Page>
     </>
