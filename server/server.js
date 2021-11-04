@@ -5,7 +5,7 @@ let jwt = require("jsonwebtoken");
 var server = require('http').createServer(app);
 const mysql = require('mysql');
 const cors = require('cors');
-const { JsxEmit } = require('typescript');
+const multer  = require('multer')
 app.use(cors())
 
 const db = mysql.createConnection({
@@ -17,6 +17,16 @@ const db = mysql.createConnection({
 })
 
 db.connect();
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+})
+var upload = multer({ storage: storage })
 
 app.post('/signup', function(req, res){
 
@@ -41,8 +51,8 @@ app.get('/getgallery', function(req, res){
     })
 })
 
-app.post('/gallery', function(req, res){
-
+app.post('/gallery', upload.single('file'), function(req, res){
+    res.json(req.file);
 })
 
 app.delete('/gallery', function(req, res){
@@ -50,5 +60,5 @@ app.delete('/gallery', function(req, res){
 })
 
 server.listen(1312, function () {
-    console.log('Example app listening on port', 1234);
+    console.log('Example app listening on port', 1312);
 });
