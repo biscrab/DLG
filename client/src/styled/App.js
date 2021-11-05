@@ -1,3 +1,4 @@
+import exp from 'constants'
 import styled from 'styled-components'
 
 export const Header = styled.nav`
@@ -44,5 +45,37 @@ export const MoveDiv = styled.div`
             background-color: royalblue;
             color: white;
         }
+    }
+`
+
+export const Background = styled.div`
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+`
+
+export const Dropzone = styled.div`
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 700px;
+    color: gray;
+    margin: 0;
+    position: relative;
+    right: 0px;
+    font-size: 20px;
+    left: 50%;
+    border: 2px dashed gray;
+    transform: translateX(-50%);
+    :hover{
+        cursor: pointer;
     }
 `

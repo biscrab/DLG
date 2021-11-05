@@ -16,25 +16,8 @@ const db = mysql.createConnection({
     database: "gallery"
 })
 
+
 db.connect();
-
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './uploads')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname)
-    }
-})
-var upload = multer({ storage: storage })
-
-app.post('/signup', function(req, res){
-
-})
-
-app.post('/login', function(req, res){
-
-})
 
 app.get('/getgallery', function(req, res){
     db.query(`SELECT * from gallery`, function(err, rows){
@@ -51,7 +34,7 @@ app.get('/getgallery', function(req, res){
     })
 })
 
-app.post('/gallery', upload.single('file'), function(req, res){
+app.post('/gallery', function(req, res){
     res.json(req.file);
 })
 
